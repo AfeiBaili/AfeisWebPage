@@ -63,6 +63,42 @@ header {
     text-decoration: underline solid 3px;
 }
 
+.top-nav .sponsor .item-checkout {
+    height: 25vw;
+    display: none;
+}
+
+.top-nav .sponsor .item-checkout .sponsor1 {
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+    background-color: #eeeeee;
+    right: 0;
+    transition: all 1s;
+}
+
+.top-nav .sponsor .item-checkout .sponsor2 {
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+    background-color: #eeeeee;
+    left: 0;
+    transition: all 1s;
+}
+
+.top-nav li.sponsor:hover .item-checkout {
+    display: block;
+}
+
+.top-nav li.sponsor:hover .sponsor2 {
+    transform: translateX(50vw);
+}
+
+.top-nav li.sponsor:hover .sponsor1 {
+    transform: translateX(0vw);
+}
+
+
 /*header背景*/
 .top-background {
     height: 25vw;
@@ -105,7 +141,6 @@ header {
 
 .top-main .my-name {
     background-color: #191b26;
-    /*background-color: #eeeeee;*/
     width: 17vw;
     height: 7vw;
     display: inline-block;
