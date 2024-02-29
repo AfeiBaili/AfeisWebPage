@@ -63,6 +63,7 @@ header {
     text-decoration: underline solid 3px;
 }
 
+/*赞助*/
 .top-nav .sponsor .item-checkout {
     height: 25vw;
     display: none;
@@ -72,32 +73,50 @@ header {
     position: absolute;
     width: 25vw;
     height: 25vw;
-    background-color: #eeeeee;
     right: 0;
     transition: all 1s;
+    background: url("../resource/item-checkout1.jpg") no-repeat center -21vw/ 160%;
 }
 
 .top-nav .sponsor .item-checkout .sponsor2 {
     position: absolute;
     width: 25vw;
     height: 25vw;
-    background-color: #eeeeee;
-    left: 0;
+    left: 49vw;
     transition: all 1s;
+    background: url("../resource/item-checkout2.png") no-repeat center -19.5vw/ 225%;
 }
 
 .top-nav li.sponsor:hover .item-checkout {
+
+    .sponsor1 {
+        animation: checkout1 0.5s;
+    }
+
+    .sponsor2 {
+        animation: checkout2 0.5s;
+    }
+
     display: block;
 }
 
-.top-nav li.sponsor:hover .sponsor2 {
-    transform: translateX(50vw);
+@keyframes checkout1 {
+    from {
+        transform: translateX(25vw);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 
-.top-nav li.sponsor:hover .sponsor1 {
-    transform: translateX(0vw);
+@keyframes checkout2 {
+    from {
+        transform: translateX(-50vw);
+    }
+    to {
+        transform: translateX(0vw);
+    }
 }
-
 
 /*header背景*/
 .top-background {
