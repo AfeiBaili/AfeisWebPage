@@ -1,0 +1,97 @@
+/*字体设置*/
+a, li {
+    font-size: 14px;
+}
+
+/*顶部条设置*/
+.top-bar > div {
+    margin: 0 auto;
+    width: 1080px;
+    height: 30px;
+    background-color: #eeeeee;
+    font-size: 0;
+}
+
+.top-bar a {
+    padding: 0 10px;
+    border-right: 1px solid #666666;
+}
+
+.top-bar li {
+    display: inline-block;
+    line-height: 30px;
+}
+
+.top-bar .clear-float .left-float li:last-child > a,
+.top-bar .clear-float .right-float li:last-child > a {
+    padding-right: 0;
+    border-right: 0;
+}
+
+/*logo区域*/
+.logo-region > div {
+    margin: 0 auto;
+    width: 1080px;
+    height: 100px;
+    background-color: #222326;
+}
+
+.logo-region .upper-part {
+    position: relative;
+    height: 100px;
+    margin-left: 15px;
+}
+.logo-region .upper-part div{
+    color: #eeeeee;
+}
+
+.logo-region img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 120px;
+    image-rendering: pixelated;
+}
+
+.logo-region .down-part {
+    height: 100px;
+    font-size: 0;
+    padding-right: 40px;
+    margin-top: 35px;
+}
+
+.logo-region .down-part input {
+    width: 300px;
+    height: 30px;
+    vertical-align: top;
+    border: 1px solid #666666;
+}
+
+.logo-region .down-part button {
+    font-size: 14px;
+    width: 60px;
+    height: 32px;
+    border: 1px solid #666666;
+    background-color: black;
+    color: #eeeeee;
+    background-image: url("../resource/搜索-icon.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/*浮动设置*/
+.left-float {
+    float: left;
+}
+
+.right-float {
+    float: right;
+}
+
+.clear-float::after {
+    content: "";
+    display: block;
+    clear: both;
+}

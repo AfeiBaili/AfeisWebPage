@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="./resource/FLIcon.png" sizes="16x16">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="./css/test.css">
+    <title>网页练习</title>
+</head>
+<body>
+<!--浮动页面练习-->
+<div id="page">
+    <div class="upperPart">
+        <div class="upperPart1 clearFloat">
+            <div class="logo leftFloat gradientColor">这是Logo</div>
+            <div class="banner leftFloat gradientColor">这是横幅</div>
+            <div class="banner1 leftFloat gradientColor">这也是横幅</div>
+        </div>
+        <div class="menu gradientColor">这是菜单</div>
+    </div>
+    <div class="contentPart clearFloat">
+        <div class="leftContent leftFloat">
+            <div class="upperContent clearFloat">
+                <div class="column1 leftFloat gradientColor">栏目一</div>
+                <div class="column2 leftFloat gradientColor">栏目二</div>
+            </div>
+            <div class="belowContent clearFloat">
+                <div class="column3 leftFloat gradientColor">栏目三</div>
+                <div class="column4 leftFloat gradientColor">栏目四</div>
+                <div class="column5 leftFloat gradientColor">栏目五</div>
+                <div class="column6 leftFloat gradientColor">栏目六</div>
+            </div>
+        </div>
+        <div class="rightContent leftFloat">
+            <div class="column7 gradientColor">栏目七</div>
+            <div class="column8 gradientColor">栏目八</div>
+            <div class="column9 gradientColor">栏目九</div>
+        </div>
+    </div>
+    <div class="footPart"></div>
+</div>
+<!--其他练习-->
+    <div id="box">
+        <div class="box" id="box1"></div>
+        <div class="box" id="box2"></div>
+        <div class="box" id="box3"></div>
+        <div class="box" id="box4"></div>
+        <div class="box" id="box5"></div>
+        <div class="box" id="box6"></div>
+        <div class="box" id="box7"></div>
+        <div class="box" id="box8"></div>
+        <div class="box" id="box9"></div>
+        <div class="box" id="box10"></div>
+        <div class="box" id="box11"></div>
+        <div class="box" id="box12"></div>
+        <div class="box" id="box13"></div>
+        <div class="box" id="box14"></div>
+        <div class="box" id="box15"></div>
+        <div class="box" id="box16"></div>
+        <div class="box" id="box17"></div>
+        <div class="box" id="box18"></div>
+        <div class="box" id="box19"></div>
+        <div class="box" id="box20">
+            <span id="span1">抽一张属于</span>
+            <span id="span2">自己的</span>
+            <span id="span3">幸运卡牌</span>
+        </div>
+    </div>
+<h2 id="test">以下HTML测试</h2>
+<table border="1" width="1470">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>电话</th>
+        <th>备注</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>阿飞</td>
+        <td>18</td>
+        <td>17763286486</td>
+        <td>无</td>
+    </tr>
+    <tr>
+        <td>张李嘉诺</td>
+        <td>15</td>
+        <td>暂无</td>
+        <td>大黄人</td>
+    </tr>
+    <tr>
+        <td>陈铭</td>
+        <td>15</td>
+        <td>暂无</td>
+        <td>小黄人</td>
+    </tr>
+    </tbody>
+    <tfoot></tfoot>
+</table>
+<fieldset>
+    <legend>账号登录</legend>
+    <form action="null">
+        <input type="hidden" name="from" value="afeis">
+        <label>
+            账号：
+            <input type="text" name="account" maxlength="16">
+        </label>
+        <br>
+        <label>
+            密码：
+            <input type="password" name="password" maxlength="16">
+        </label>
+        <br>
+        <span>性别：</span>
+        <label>
+            男
+            <input type="radio" name="gender" value="man">
+        </label>
+        <label>
+            女
+            <input type="radio" name="gender" value="woman">
+        </label>
+        <br>
+        <label>
+            不愿意透露性别
+            <input type="radio" name="gender" value="null">
+        </label>
+        <br>
+        <label>
+            其他：
+            <textarea name="other" cols="21" rows="5"></textarea>
+        </label>
+        <br>
+        <label>
+            来自地区：
+            <select name="city">
+                <option value="bj">北京</option>
+                <option value="sd">山东</option>
+                <option value="ah">安徽</option>
+                <option value="yn">云南</option>
+                <option value="xz">西藏</option>
+                <option value="hb">河北</option>
+            </select>
+        </label>
+        <br>
+        <button type="submit">确认</button>
+        <button type="reset">重置</button>
+        <button type="button">点此按钮没用</button>
+    </form>
+</fieldset>
+<div id="backHomeButton">
+    <a href="index.html">返回主页</a>
+</div>
+</body>
+</html>

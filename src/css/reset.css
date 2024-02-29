@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*未点击的*/
+a:link {
+    color: #d2c3d5;
+}
+
+/*点过的*/
+a:visited {
+    color: #84709b;
+}
+
+/*获得鼠标焦点*/
+a:hover {
+    color: #464879;
+}
+
+/*点击后*/
+a:active {
+    color: #5d7db3;
+}

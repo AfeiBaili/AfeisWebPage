@@ -1,0 +1,32 @@
+.div {
+    display: inline-block;
+    width: 600px;
+}
+
+div#left {
+    text-align: center;
+}
+
+div#left {
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    margin-top: 100px;
+    border: solid 25px white;
+    box-shadow: 0 0 0 5px #090909,
+    5px 5px 10px 0 rgba(0, 0, 0, 0.8);
+    transition: .3s;
+}
+
+img:hover {
+    box-shadow: 0 0 0 5px #090909,
+    5px 5px 20px 5px rgba(0, 0, 0, 0.6);
+    transform: translateY(-10px);
+}
+
+body {
+    text-align: center;
+    background-color: white;
+}

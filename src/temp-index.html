@@ -1,0 +1,260 @@
+!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /*#musicPlayerContainer {*/
+        /*    position: fixed;*/
+        /*    right: 10px;*/
+        /*    bottom: 10px;*/
+        /*    background-color: rgba(255, 255, 255, 0.7);*/
+        /*    padding: 10px;*/
+        /*    border-radius: 5px;*/
+        /*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);*/
+        /*}*/
+
+        /*#progressBar {*/
+        /*    width: 100%;*/
+        /*    height: 20px;*/
+        /*    background-color: #ddd;*/
+        /*}*/
+
+        #progress {
+            width: 0;
+            height: 100%;
+            background-color: #4CAF50;
+        }
+
+        /*之后*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-bar {
+            background-image: url("./resource/miku.png");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100%;
+            height: 800px;
+            position: relative;
+        }
+
+        .nav-bar .bar-left input {
+            position: sticky;
+            top: 0;
+            display: none;
+        }
+
+        .nav-bar .bar {
+            position: sticky;
+            top: 0;
+            height: 50px;
+            width: 100%;
+            background-color: #090909;
+            color: #eeeeee;
+            line-height: 50px;
+            font-size: 0;
+        }
+
+        .nav-bar .bar-left {
+            position: sticky;
+            top: 0;
+            color: #eeeeee;
+        }
+
+        .nav-bar .bar-left label, .bottom-bar label {
+            font-size: 16px;
+            padding: 15px 20px;
+            background-color: #090909;
+            transition: color 0.3s, background-color 0.5s;
+        }
+
+        .nav-bar .bar-left label:hover, .bottom-bar label:hover {
+            color: rgb(132, 174, 255);
+            background-color: rgb(28, 51, 105);
+            text-decoration: underline rgb(132, 174, 255);
+        }
+
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgb(9, 9, 9);
+            padding: 10px 20px;
+        }
+
+        .bottom-bar button {
+            display: none;
+        }
+
+        .bottom-bar label {
+            color: #eeeeee;
+            font-size: 12px;
+            padding: 10px 20px;
+        }
+
+        .bottom-bar label:first-child {
+            position: relative;
+            right: 460px;
+        }
+
+        .bottom-bar label:last-child {
+            position: relative;
+            left: 420px;
+        }
+
+        .bottom-bar #controls {
+            width: 100%;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div class="nav-bar">
+
+    <div class="bar">
+
+        <div class="bar-left">
+
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                <label for="musicFile">点我选择文件</label>
+                <input type="file" name="musicFile" id="musicFile" accept=".mp3" required>
+                <label>点我上传
+                    <input type="submit" value="上传">
+                </label>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+<div class="bottom-bar">
+    <audio id="musicPlayer" preload="auto"></audio>
+    <input type="range" id="seekBar" min="0" step="0.01" style="width: 96.5%;">
+    <div id="controls">
+        <label>上一首
+            <button onclick="prevSong()">上一首</button>
+        </label>
+        <label>播放
+            <button onclick="playAudio()">播放</button>
+        </label>
+        <label>暂停
+            <button onclick="pauseAudio()">暂停</button>
+        </label>
+        <label>下一首
+            <button onclick="nextSong()">下一首</button>
+        </label>
+    </div>
+    <div>
+    </div>
+    <ul id="playlist"></ul>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<script>
+
+    var player = document.getElementById("musicPlayer");
+    var progressBar = document.getElementById("progress");
+    var seekBar = document.getElementById("seekBar");
+    var songs = [];
+    var currentSong = 0;
+    var playlist = document.getElementById("playlist");
+
+    // 获取歌曲列表
+    fetch('change.php')
+        .then(response => response.json())
+        .then(data => {
+            songs = data;
+            player.src = songs[currentSong];
+            displayPlaylist();
+        })
+        .catch(error => console.error('Error:', error));
+
+    player.addEventListener('timeupdate', updateProgress);
+
+    function playAudio() {
+        player.play();
+    }
+
+    function pauseAudio() {
+        player.pause();
+    }
+
+    function prevSong() {
+        currentSong = (currentSong > 0) ? currentSong - 1 : songs.length - 1;
+        player.src = songs[currentSong];
+        player.play();
+    }
+
+    function nextSong() {
+        currentSong = (currentSong < songs.length - 1) ? currentSong + 1 : 0;
+        player.src = songs[currentSong];
+        player.play();
+    }
+
+    seekBar.addEventListener('input', function () {
+        var seekTime = (seekBar.value / 100) * player.duration;
+        player.currentTime = seekTime;
+    });
+
+    function updateProgress() {
+        var percentage = (player.currentTime / player.duration) * 100;
+        seekBar.value = percentage;
+    }
+
+    function displayPlaylist() {
+        playlist.innerHTML = '';
+        songs.forEach(function (songPath, index) {
+            var songName = songPath.substring(songPath.lastIndexOf('/') + 1);
+            var listItem = document.createElement('li');
+            listItem.textContent = songName;
+            listItem.addEventListener('click', function () {
+                currentSong = index;
+                player.src = songs[currentSong];
+                player.play();
+            });
+            playlist.appendChild(listItem);
+        });
+    }
+
+    player.addEventListener('ended', function () {
+        currentSong = (currentSong < songs.length - 1) ? currentSong + 1 : 0;
+        player.src = songs[currentSong];
+        player.play();
+    });
+</script>
+</body>
+</html>
