@@ -40,7 +40,7 @@ header {
 }
 
 .top-nav .item {
-    font-size: 2vw;
+    font-size: 1.7vw;
     list-style-type: none;
     display: inline-block;
     text-align: center;
@@ -48,7 +48,7 @@ header {
 
 .top-nav .item a {
     display: inline-block;
-    color: #7d8dea;
+    color: #c8c8e5;
     text-decoration: none;
     line-height: 5vw;
     width: 10vw;
@@ -59,7 +59,7 @@ header {
 
 .top-nav .item a:hover {
     background: #1b2141;
-    color: #d1d6f6;
+    color: #618eea;
     text-decoration: underline solid 3px;
 }
 
